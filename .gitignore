@@ -4,3 +4,4 @@ __pycache__
 .data/
 *.pyc
 resources/pa3_images
+pa3_images.zip

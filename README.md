@@ -5,8 +5,8 @@
 Machine learning project based on Keras and Tensorflow to classify objects on pictures. There are three deep neural network architectures implemented:
 
 * CNN implemented from scratch named **simple**
-* CNN implemented with transfer learning and fine-tuning from VGG16 net with convolutional layers weight initialized from *imagenet*
-* CNN implemented with transfer learning and fine-tuning from ResNet50 net with convolutional layers weight initialized from *imagenet*
+* CNN implemented with transfer learning and fine-tuning from VGG16 net with convolutional layers weight initialized from *imagenet* named **vgg16**
+* CNN implemented with transfer learning and fine-tuning from ResNet50 net with convolutional layers weight initialized from *imagenet* named **resnet**
 
 ## Pre-requirements
 

@@ -2,6 +2,7 @@ import os
 from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import SGD, Adam
 from source.utils.get_images_num import get_images_num
+from source.utils.history_help import *
 
 from source.models import (
     resnet50_pg_tl,
@@ -11,7 +12,7 @@ from source.models import (
 
 imgdir = './resources/pa3_images'
 
-train_dir = os.path.join(imgdir, 'train_augmentation')
+train_dir = os.path.join(imgdir, 'train')
 train_cars_dir = os.path.join(train_dir, 'car')
 train_others_dir = os.path.join(train_dir, 'other')
 
@@ -72,3 +73,8 @@ history = model.fit(
     validation_data=validate_generator,
     validation_steps=total_val // batch_size
 )
+
+
+save_history(history, "./out.hist")
+h = load_history("./out.hist")
+draw_history_plots(h, "./output.png")

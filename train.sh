@@ -11,6 +11,8 @@ python ./train.py \
     --epochs 20 \
     --lr 0.001 \
     --batch-size 128 \
-    --img-size 64
-
+    --img-size 64 \
+    --save-history ./history.hist \
+    --save-plot ./plot.png
+    # --show-plot
 deactivate

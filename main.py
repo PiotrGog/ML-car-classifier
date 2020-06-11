@@ -12,7 +12,7 @@ from source.models import (
 
 imgdir = './resources/pa3_images'
 
-train_dir = os.path.join(imgdir, 'train')
+train_dir = os.path.join(imgdir, 'train_augmentation')
 train_cars_dir = os.path.join(train_dir, 'car')
 train_others_dir = os.path.join(train_dir, 'other')
 

@@ -2,17 +2,21 @@
 
 ## Introduction
 
-Machine learning project based on Keras and Tensorflow to classify objects on pictures.
+Machine learning project based on Keras and Tensorflow to classify objects on pictures. There are three deep neural network architectures implemented:
+
+* CNN implemented from scratch named **simple**
+* CNN implemented with transfer learning and fine-tuning from VGG16 net with convolutional layers weight initialized from *imagenet*
+* CNN implemented with transfer learning and fine-tuning from ResNet50 net with convolutional layers weight initialized from *imagenet*
 
 ## Pre-requirements
 
-1. Python 3.6
+1. Python >= 3.6
 
-2. pip package manager
+2. pip >= 20.1.1
 
 ## Installation
 
-### Automatic installation (Linux only)
+### Automatic installation (Linux/MacOS)
 
 Run ```install.sh``` script which creates Python virtual environment and installs packages.
 
@@ -25,6 +29,16 @@ Run ```install.sh``` script which creates Python virtual environment and install
 3. Run ```pip install -r ./requirements.txt``` to install packages
 
 4. Deactivate Python local virtual environment
+
+## Running
+
+### Training model
+
+To train one of implemented model use ```./train.py``` script. An example is in ```train.sh``` script. To print all available command line arguments run ```python ./train.py --help```.
+
+### Testing model
+
+To test one of implemented model use ```./test.py``` script. An example is in ```test.sh``` script. To print all available command line arguments run ```python ./test.py --help```.
 
 ## Installing packages and saving configuration
 

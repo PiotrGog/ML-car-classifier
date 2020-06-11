@@ -1,7 +1,7 @@
 from source.utils.history_help import *
 
 
-history_name = "./resnet_pg224_128_20_0.0001.hist"
+history_name = "./simple_pg64_128_20_0.001.hist"
 h = load_history(history_name)
 print(h['accuracy'])
 print(h.keys())

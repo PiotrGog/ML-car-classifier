@@ -75,8 +75,9 @@ history = model.fit(
     validation_steps=total_val // batch_size
 )
 
-history_name = f"./simple_pg_2{img_size}_{batch_size}_{epochs}_{lr}.hist"
+history_name = f"./simple_pg{img_size}_{batch_size}_{epochs}_{lr}.hist"
+plot_name = f"./simple_pg{img_size}_{batch_size}_{epochs}_{lr}.png"
 
 save_history(history, history_name)
 h = load_history(history_name)
-draw_history_plots(h, history_name)
+draw_history_plots(h, plot_name)

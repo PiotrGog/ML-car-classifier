@@ -32,7 +32,7 @@ total_val = num_cars_val + num_others_val
 classes = ['other', 'car']
 img_size = 64
 batch_size = 128
-epochs = 10
+epochs = 20
 
 # model_builder = vgg16_pg_tl.Vgg16PgTl()
 # model_builder = resnet50_pg_tl.Resnet50PgTl()
@@ -58,9 +58,10 @@ validate_generator = vgg_data_gen.flow_from_directory(
     seed=12345,
     shuffle=True)
 
+lr = 0.0001
 
 model = model_builder.get_instance(img_size, img_size)
-opt = Adam(lr=0.001)
+opt = Adam(lr=lr)
 model.compile(optimizer=opt, loss='binary_crossentropy',
               metrics=['accuracy'])
 
@@ -74,7 +75,8 @@ history = model.fit(
     validation_steps=total_val // batch_size
 )
 
+history_name = f"./simple_pg_2{img_size}_{batch_size}_{epochs}_{lr}.hist"
 
-save_history(history, "./out.hist")
-h = load_history("./out.hist")
-draw_history_plots(h, "./output.png")
+save_history(history, history_name)
+h = load_history(history_name)
+draw_history_plots(h, history_name)

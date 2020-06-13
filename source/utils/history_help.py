@@ -5,7 +5,7 @@ import os
 
 def save_history(history, file_name):
     with open(file_name, 'wb') as f:
-        pickle.dump(history.history, f)
+        pickle.dump(history, f)
 
 
 def load_history(file_name):

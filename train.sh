@@ -13,6 +13,7 @@ python ./train.py \
     --batch-size 128 \
     --img-size 64 \
     --save-history ./history.hist \
-    --save-plot ./plot.png
+    --save-plot ./plot.png \
     # --show-plot
+
 deactivate

@@ -6,3 +6,4 @@ __pycache__
 resources/pa3_images
 pa3_images.zip
 tmp/
+*.log

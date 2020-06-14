@@ -70,8 +70,38 @@ if __name__ == "__main__":
     hist_files = [
         (os.path.join(hist_dir, f), f) for f in os.listdir(hist_dir)
     ]
+    hist_files.sort(key=lambda x: x[1])
+    print(hist_files)
+    # exit()
+
+    def image_insert(filename):
+        splitted = filename.split("_")
+        # print(splitted)
+        text = f"\\begin{{figure}}[H]\n" + \
+            "   \centering\n" + \
+            "   \\begin{subfigure}[b]{0.48\\textwidth}\n" + \
+            "       \centering\n" + \
+            f"       \includegraphics[width=\\textwidth]{{wykresy/{filename}_loss.png}}\n" + \
+            "       \caption{Wartość funkcji straty w przebiegu uczenia}\n" + \
+            f"       \label{{subfig:{filename}_loss}}\n" + \
+            "   \end{subfigure}\n" + \
+            "   \\begin{subfigure}[b]{0.48\\textwidth}\n" + \
+            "       \centering\n" + \
+            f"       \includegraphics[width=\\textwidth]{{wykresy/{filename}_accuracy.png}}\n" + \
+            "       \caption{Stopień dokładności modelu w przebiegu uczenia}\n" + \
+            f"       \label{{subfig:{filename}_accuracy}}\n" + \
+            "   \end{subfigure}\n" + \
+            f"   \caption{{Model: {splitted[0]}; wielkość obrazka: {splitted[3]}; rozmiar mini-batcha: {splitted[4]}; współczynnik uczenia: {splitted[6]}}}\n" + \
+            f"    \label{{fig:{filename}}}\n" + \
+            "\end{figure}"
+
+        print(text)
+        print()
+        print()
+
     for (hf_path, hf) in hist_files:
         with open(hf_path, 'rb') as f:
             data = pickle.load(f)
         filename, file_extension = os.path.splitext(hf)
         save_history_plots(data, os.path.join(tmp_dir, filename+".png"))
+        image_insert(filename)

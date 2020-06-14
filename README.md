@@ -30,6 +30,10 @@ Run ```install.sh``` script which creates Python virtual environment and install
 
 4. Deactivate Python local virtual environment
 
+### Getting data
+
+Use ```download_data.sh``` script to download and unpack image dataset. Use ```generate_data.sh``` script to run data augmentation in another directory.
+
 ## Running
 
 ### Training model
@@ -39,6 +43,10 @@ To train one of implemented model use ```./train.py``` script. An example is in 
 ### Testing model
 
 To test one of implemented model use ```./test.py``` script. An example is in ```test.sh``` script. To print all available command line arguments run ```python ./test.py --help```.
+
+### Predict car class
+
+Use ```Runme.sh``` script with pretrained models. Go to directory with subdirectories called "car" (or any other directory which has car in name) and "other" (no car word in the name) and run ```Runme.sh``` script. In the result program will show the list of photos classified as car and accuracy.
 
 ## Installing packages and saving configuration
 

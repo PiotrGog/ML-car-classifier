@@ -51,11 +51,12 @@ if __name__ == "__main__":
 
     model_builder = models_dict[args.model_name]
 
+    classes = ['other', 'car']
     data_gen = model_builder.get_image_data_generator()
     print("test_dir", os.listdir(test_dir))
     os.listdir(test_dir)
     test_generator = data_gen.flow_from_directory(
-        test_dir+"/",
+        test_dir,
         target_size=(img_size, img_size),
         batch_size=1,
         class_mode=None,
@@ -65,14 +66,31 @@ if __name__ == "__main__":
     opt = Adam(lr=0.001)
     model.compile(optimizer=opt, loss='binary_crossentropy',
                   metrics=['accuracy'])
-
-    print(model.summary())
-
+    import numpy as np
     filenames = test_generator.filenames
     nb_samples = len(filenames)
-    print("nb_samples", filenames)
     predict = model.predict(
         test_generator
     )
+    predict = model.predict(
+        test_generator
+    )
+    tp = 0
+    tn = 0
+    fp = 0
+    fn = 0
+    for p, f in zip(predict, filenames):
+        if "car" in os.path.split(f)[0].replace("/", ""):
+            if(p[0] > 0.5):
+                tp += 1
+            else:
+                fn += 1
+        else:
+            if(p[0] > 0.5):
+                fp += 1
+            else:
+                tn += 1
 
-    print(predict)
+        if p[0] > 0.5:
+            print(f)
+    print("Accuracy: ", (tp+tn)/len(filenames))

@@ -61,8 +61,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     models_dict = {
-        "resnet": vgg16_pg_tl.Vgg16PgTl(),
-        "vgg16": resnet50_pg_tl.Resnet50PgTl(),
+        "vgg16": vgg16_pg_tl.Vgg16PgTl(),
+        "resnet": resnet50_pg_tl.Resnet50PgTl(),
         "simple": simple_pg.SimplePg()
     }
 

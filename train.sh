@@ -8,7 +8,7 @@ python ./train.py \
     --val-dir ./resources/pa3_images/validation/ \
     --model-h5 ./model.h5 \
     --model-json ./model.json \
-    --epochs 20 \
+    --epochs 2 \
     --lr 0.001 \
     --batch-size 128 \
     --img-size 64 \

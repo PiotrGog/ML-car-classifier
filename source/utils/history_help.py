@@ -14,7 +14,6 @@ def load_history(file_name):
 
 
 def save_history_plots(history, file_name=None):
-    print(history.keys())
     # summarize history for accuracy
     plt.plot(history['accuracy'])
     plt.plot(history['val_accuracy'])
@@ -63,3 +62,16 @@ def draw_history_plots(history, file_name=None):
         filename, file_extension = os.path.splitext(file_name)
         plt.savefig(filename + "_loss" + file_extension)
     plt.show()
+
+
+if __name__ == "__main__":
+    hist_dir = "./hist"
+    tmp_dir = "./tmp"
+    hist_files = [
+        (os.path.join(hist_dir, f), f) for f in os.listdir(hist_dir)
+    ]
+    for (hf_path, hf) in hist_files:
+        with open(hf_path, 'rb') as f:
+            data = pickle.load(f)
+        filename, file_extension = os.path.splitext(hf)
+        save_history_plots(data, os.path.join(tmp_dir, filename+".png"))

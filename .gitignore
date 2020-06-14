@@ -5,3 +5,4 @@ __pycache__
 *.pyc
 resources/pa3_images
 pa3_images.zip
+tmp/

@@ -1,7 +1,7 @@
 from source.utils.history_help import *
 
 
-history_name = "./history.hist"
+history_name = "./history00001.hist"
 h = load_history(history_name)
 
 for l, a, lv, av in zip(h['loss'], h['accuracy'], h['val_loss'], h['val_accuracy']):

@@ -46,7 +46,28 @@ To test one of implemented model use ```./test.py``` script. An example is in ``
 
 ### Predict car class
 
+Download pretrained models from [Google Drive](https://drive.google.com/file/d/1cjEKk15u5jrjUupMm--vTLPdQLlOS8hV/view?usp=sharing) and unpack models to *pretrained_models* folder or use ```download_models.sh``` script.
+
 Use ```Runme.sh``` script with pretrained models. Go to directory with subdirectories called "car" (or any other directory which has car in name) and "other" (no car word in the name) and run ```Runme.sh``` script. In the result program will show the list of photos classified as car and accuracy.
+Go to target directory and call e.g.
+
+```bash
+../../../Runme.sh
+```
+
+By default ```Runme.sh``` uses *resnet* model. Call ```Runme.sh``` with model name to use another one, e.g.:
+
+```bash
+Runme.sh resnet
+```
+
+```bash
+Runme.sh vgg16
+```
+
+```bash
+Runme.sh simple
+```
 
 ## Installing packages and saving configuration
 

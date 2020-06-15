@@ -13,7 +13,7 @@ img_size_list=(244 128 126)
 
 echo $0
 
-i=2
+i=0
 
 if [ "$1" == "resnet" ]
 then

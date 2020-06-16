@@ -2,6 +2,9 @@
 
 source env/bin/activate
 
+mkdir -p ./resources/pa3_images/train_augmentation/car/
+mkdir -p ./resources/pa3_images/train_augmentation/other/
+
 echo "Start generate cars"
 python ./generate_data.py \
     "./resources/pa3_images/train/car" \

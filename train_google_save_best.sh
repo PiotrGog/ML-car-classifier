@@ -22,18 +22,7 @@ do
     batch=${batches_list[$i]}
     img_size=${img_size_list[$i]}
 
-    # python ./train_single_loop.py \
-    #     --model $model \
-    #     --train-dir ./resources/pa3_images/train_augmentation/ \
-    #     --val-dir ./resources/pa3_images/validation/ \
-    #     --model-h5 ./$pretrained_model_dir/$model.h5 \
-    #     --model-json ./$pretrained_model_dir/$model.json \
-    #     --epochs $epochs \
-    #     --lr $lr_param \
-    #     --batch-size $batch \
-    #     --img-size $img_size
-
-    python /content/gdrive/My\ Drive/ML_car/ML-car-classifier/train_single_loop.py \
+    python /content/gdrive/My\ Drive/ML_car/ML-car-classifier/train_save_best.py \
         --model $model \
         --train-dir ./resources/pa3_images/train_augmentation/ \
         --val-dir ./resources/pa3_images/validation/ \

@@ -46,17 +46,6 @@ if __name__ == "__main__":
                         action="store", required=False,
                         default=128,
                         help="Size of images: img-size x img-size.")
-    parser.add_argument("--save-history", type=str, dest="save_history",
-                        action="store", required=False,
-                        default=None,
-                        help="Path to save history file.")
-    parser.add_argument("--save-plot", type=str, dest="save_plot",
-                        action="store", required=False,
-                        default=None,
-                        help="Path to save accuracy and loss plot.")
-    parser.add_argument("--show-plot", dest="show_plot",
-                        action="store_true", required=False,
-                        help="Show accuracy and loss plot.")
 
     args = parser.parse_args()
 

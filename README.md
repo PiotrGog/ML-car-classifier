@@ -30,26 +30,50 @@ Run ```install.sh``` script which creates Python virtual environment and install
 
 4. Deactivate Python local virtual environment
 
+### Getting pretrained models
+
+Download pretrained models from [Google Drive](https://drive.google.com/file/d/1cjEKk15u5jrjUupMm--vTLPdQLlOS8hV/view?usp=sharing) and unpack models to *pretrained_models* folder or use ```download_models.sh``` script.
+
 ### Getting data
 
 Use ```download_data.sh``` script to download and unpack image dataset. Use ```generate_data.sh``` script to run data augmentation in another directory.
 
 ## Running
 
-### Training model
+### Predict class using ```Runme.sh``` script (with pretrained models)
 
-To train one of implemented model use ```./train.py``` script. An example is in ```train.sh``` script. To print all available command line arguments run ```python ./train.py --help```.
+Use ```Runme.sh``` script with pretrained models. Go to directory with subdirectories named "car" and "other" and run ```Runme.sh``` script. In the result program will show the list of photos classified as *car* and classification accuracy.
 
-### Testing model
+Example directory structure:
 
-To test one of implemented model use ```./test.py``` script. An example is in ```test.sh``` script. To print all available command line arguments run ```python ./test.py --help```.
+```bash
+.
+├── download_data.sh
+├── .........
+├── resources
+│   └── pa3_images
+│       └── test_samples
+│           ├── car
+│           │   ├── 0000.jpg
+│           │   ├── 0001.jpg
+│           │   ├── 0002.jpg
+│           │   ├── 0003.jpg
+│           │   ├── 0004.jpg
+│           │   ├── 0005.jpg
+│           │   └── 0006.jpg
+│           └── other
+│               ├── 1000.jpg
+│               ├── 1001.jpg
+│               ├── 1002.jpg
+│               ├── 1003.jpg
+│               └── 1004.jpg
+├── Runme.py
+├── Runme.sh
+├── .........
+└── train.sh
+```
 
-### Predict car class
-
-Download pretrained models from [Google Drive](https://drive.google.com/file/d/1cjEKk15u5jrjUupMm--vTLPdQLlOS8hV/view?usp=sharing) and unpack models to *pretrained_models* folder or use ```download_models.sh``` script.
-
-Use ```Runme.sh``` script with pretrained models. Go to directory with subdirectories called "car" (or any other directory which has car in name) and "other" (no car word in the name) and run ```Runme.sh``` script. In the result program will show the list of photos classified as car and accuracy.
-Go to target directory and call e.g.
+Go to directory ```resources/pa3_images/test_samples/``` and call:
 
 ```bash
 ../../../Runme.sh
@@ -68,6 +92,27 @@ Runme.sh vgg16
 ```bash
 Runme.sh simple
 ```
+
+### Training model (preferred)
+
+```train_save_best.py``` script executes given number of epochs saving model with the best validation accuracy value.
+
+Use ```train_local_save_best.sh``` script to train all networks with the best parameters locally.
+
+Use ```ML.ipynb``` ipython script in [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb) if local computation resources are not available.
+In your [Google Drive](https://www.google.com/drive/) create folder named **ML_car** and place there ```ML.ipynb```, then open script with **Google Colaboratory** tool. ```ML.ipynb``` calls ```train_google_save_best.sh``` script.
+
+**Select GPU Hardware accelerator in Runtime>Change runtime type>**.
+
+**Run script with Runtime>Run all**.
+
+### Training model (```train.sh``` script)
+
+To train one of implemented model use ```./train.py``` script. An example is in ```train.sh``` script. To print all available command line arguments run ```python ./train.py --help```.
+
+### Testing model
+
+To test one of implemented model use ```./test.py``` script. An example is in ```test.sh``` script. To print all available command line arguments run ```python ./test.py --help```.
 
 ## Installing packages and saving configuration
 
